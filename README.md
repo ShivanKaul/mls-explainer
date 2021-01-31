@@ -4,10 +4,13 @@
 - Architecture draft: https://github.com/mlswg/mls-architecture
 
 ## Introduction
+TODO
 
 ## Goals
+TODO
 
 ### Why not Signal?
+TODO
 
 ## Architecture
 
@@ -51,8 +54,9 @@ TODO: rest of this.
 
 ![DS Get Keys](DS_get.png)
 
-
+Note: the diagrams were made using LucidChart, editable link here: https://lucid.app/lucidchart/invitations/accept/75a3f6da-3f9b-46a5-b943-cc0408c227d8
 
 
 
 ## Who all are working on this?
+TODO
