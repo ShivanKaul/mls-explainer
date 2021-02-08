@@ -1,4 +1,4 @@
-# MLS Explainer 
+# MLS Explainer
 
 - Protocol draft: https://github.com/mlswg/mls-protocol
 - Architecture draft: https://github.com/mlswg/mls-architecture
@@ -16,7 +16,7 @@ TODO
 
 Let's imagine a hot new messaging app called EmojisOnly - a messaging app that only lets you send emojis to your friends. The creators of EmojisOnly are staunch defenders of their users' right to send unsurveilled emojis, so they decide to use MLS. What would the architecture of their app look like?
 
-MLS requires two main services: 
+MLS requires two main services:
 
 1. Authentication Service
 2. Delivery Service
@@ -36,7 +36,7 @@ Thus far, we've been talking about Alice, Bob etc as if they were Clients. Howev
 2. Encryption key pair
 3. Signature key pair
 
-The credential sent by the AS contains Alice's generated signature key, whereas Alice would generate her own encryption key. Why two key pairs, you ask? This way, the AS is able to prove that Alice's identity (so that no one can impersonate her), but the AS is not able to read Alice's messages (because only she knows her encryption private key). 
+The credential sent by the AS contains Alice's generated signature key, whereas Alice would generate her own encryption key. Why two key pairs, you ask? This way, the AS is able to prove that Alice's identity (so that no one can impersonate her), but the AS is not able to read Alice's messages (because only she knows her encryption private key).
 
 Now, let's say Alice wants to form a group with Bob and Charlie. To do this, she needs to check:
 1. if Bob and Charlie are actually on EmojisOnly
@@ -46,9 +46,9 @@ Here is where the Delivery Service comes in. Before Alice can start sending emoj
 
 ![DS Publish](DS_publish.png)
 
-Alice generates an encryption keypair for her client and bundles the public key with the credential she received from the AS and sends it to the DS. This bundle is called a 'Key Package'. Note that these Key Packages are all public-friendly information - the DS can store these in a directory, and in fact the DS can let Alice search this directory for her friends, Bob and Charlie! Bob and Charlie would also have generated and sent their Key Packages to the DS, so Alice is able to find them and download their Key Packages to her client. Note that Alice, Bob or Charlie could update their Key Packages at any time - this prevents an attacker from being able to read all past messages. In fact, EmojisOnly can also require that its users regularly update their Key Packages, so that even if Alice's encryption key is compromised, an attacker can't read all past and future group messages. 
+Alice generates an encryption keypair for her client and bundles the public key with the credential she received from the AS and sends it to the DS. This bundle is called a 'Key Package'. Note that these Key Packages are all public-friendly information - the DS can store these in a directory, and in fact the DS can let Alice search this directory for her friends, Bob and Charlie! Bob and Charlie would also have generated and sent their Key Packages to the DS, so Alice is able to find them and download their Key Packages to her client. Note that Alice, Bob or Charlie could update their Key Packages at any time - this prevents an attacker from being able to read all past messages. In fact, EmojisOnly can also require that its users regularly update their Key Packages, so that even if Alice's encryption key is compromised, an attacker can't read all past and future group messages.
 
-The cool thing is that Alice does not have to trust the DS for proof that Bob's Key Package is actually Bob's - she can just verify the Key Package by querying the AS! Of course, there's no getting around trusting the AS. 
+The cool thing is that Alice does not have to trust the DS for proof that Bob's Key Package is actually Bob's - she can just verify the Key Package by querying the AS! Of course, there's no getting around trusting the AS.
 
 TODO: rest of this.
 
@@ -57,6 +57,12 @@ TODO: rest of this.
 Note: the diagrams were made using LucidChart, editable link here: https://lucid.app/lucidchart/invitations/accept/75a3f6da-3f9b-46a5-b943-cc0408c227d8
 
 
+## The Protocol
+
+What is TreeKEM?
+Group Creation, Group Update (adding/removing a member), Group Destroy,
+Sending a message.
 
 ## Who all are working on this?
-TODO
+
+Made with love by Shivan Kaul and Sofía Celi
